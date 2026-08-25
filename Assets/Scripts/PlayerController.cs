@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float slideDuration = 0.1f;
     [SerializeField] private float slideHeightMultiplier = 0.5f;
 
+    [Header("Swipe Input")]
+    [SerializeField] private float minSwipeDistance = 80f;
+    [SerializeField] private float maxSwipeTime = 0.5f;
+
     private int currentLane = 1;
     private float verticalVelocity;
     private float defaultHeight;
@@ -37,6 +41,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 laneCenterPoint;
     private float slideTimer;
     private bool isSliding;
+    private Vector2 swipeStartPosition;
+    private float swipeStartTime;
+    private bool isTrackingSwipe;
 
     private void Awake()
     {
@@ -56,6 +63,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         ReadKeyboardInput();
+        ReadTouchInput();
 
         UpdateSlideState();
         ApplyGravity();
@@ -87,6 +95,40 @@ public class PlayerController : MonoBehaviour
         }
 
         if (Keyboard.current.sKey.wasPressedThisFrame || Keyboard.current.leftShiftKey.wasPressedThisFrame || Keyboard.current.rightShiftKey.wasPressedThisFrame) {
+            TrySlide();
+        }
+    }
+
+    private void ReadTouchInput()
+    {
+        if (Touchscreen.current == null) return;
+
+        var touch = Touchscreen.current.primaryTouch;
+
+        if (touch.press.wasPressedThisFrame) {
+            swipeStartPosition = touch.position.ReadValue();
+            swipeStartTime = Time.time;
+            isTrackingSwipe = true;
+            return;
+        }
+
+        if (!isTrackingSwipe || !touch.press.wasReleasedThisFrame) return;
+
+        isTrackingSwipe = false;
+        Vector2 swipeEndPosition = touch.position.ReadValue();
+        Vector2 swipeDelta = swipeEndPosition - swipeStartPosition;
+        float swipeTime = Time.time - swipeStartTime;
+
+        if (swipeTime > maxSwipeTime || swipeDelta.magnitude < minSwipeDistance) return;
+
+        if (Mathf.Abs(swipeDelta.x) > Mathf.Abs(swipeDelta.y)) {
+            MoveLane(swipeDelta.x > 0f ? 1 : -1);
+            return;
+        }
+
+        if (swipeDelta.y > 0f) {
+            TryJump();
+        } else {
             TrySlide();
         }
     }
