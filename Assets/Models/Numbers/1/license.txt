@@ -1,0 +1,11 @@
+Model Information:
+* title:	3D Number - 1 (ONE)
+* source:	https://sketchfab.com/3d-models/3d-number-1-one-ad1f5a58f50b4176ac6684a7ad8eac2f
+* author:	Jihambru (https://sketchfab.com/jihambru)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "3D Number - 1 (ONE)" (https://sketchfab.com/3d-models/3d-number-1-one-ad1f5a58f50b4176ac6684a7ad8eac2f) by Jihambru (https://sketchfab.com/jihambru) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

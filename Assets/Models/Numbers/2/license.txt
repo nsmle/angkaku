@@ -1,0 +1,11 @@
+Model Information:
+* title:	3D Number - 2 (TWO)
+* source:	https://sketchfab.com/3d-models/3d-number-2-two-885febcfa1d749a3a3d982ae7bea9b45
+* author:	Jihambru (https://sketchfab.com/jihambru)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "3D Number - 2 (TWO)" (https://sketchfab.com/3d-models/3d-number-2-two-885febcfa1d749a3a3d982ae7bea9b45) by Jihambru (https://sketchfab.com/jihambru) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
